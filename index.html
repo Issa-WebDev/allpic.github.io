@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Images App</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body
+    class="bg-white dark:bg-gray-950 text-gray-700 dark:text-white font-roboto pb-6"
+  >
+    <!-- Start Of Header -->
+    <header
+      class="flex justify-between items-center fixed top-0 right-0 left-0 px-[3%] py-4 border-b-2 dark:border-b-gray-800 dark:border-b bg-white z-10 dark:bg-gray-950"
+    >
+      <div class="text-gray-950 dark:text-white font-bold text-[2rem]">
+        <span class="text-red-500">All</span>pic
+      </div>
+      <button
+        id="theme-toggler"
+        class="w-[40px] h-[40px] font-bold text-[0.8rem] rounded-full bg-white shadow-sm shadow-black dark:bg-gray-600 dark:shadow-gray-200 dark:text-white"
+      >
+        Light
+      </button>
+    </header>
+    <!-- End Of Header -->
+
+    <!-- Start Of Form -->
+    <div
+      class="form-box pt-[120px] text-black dark:text-gray-950 px-[10%] w-full flex items-center justify-center"
+    >
+      <form action="" id="form" class="w-[75%] flex items-center">
+        <input
+          type="text"
+          id="input"
+          placeholder="Enter the name of what you want..."
+          class="flex-1 p-3 rounded-md mr-3 text-gray-400 outline-red-500 border border-gray-300 font-bold"
+        />
+        <button
+          id="enter-btn"
+          type="submit"
+          class="py-3 px-7 rounded-md bg-red-500 text-white font-bold opacity-[0.9] hover:opacity-[1]"
+        >
+          Enter
+        </button>
+      </form>
+    </div>
+    <!-- End Of Form -->
+
+    <!-- Start Of Image Section -->
+    <section class="w-full pt-[60px] px-[5%]">
+      <div
+        class="flex text-[1.5rem] justify-center items-center font-bold pb-[30px]"
+      >
+        All Images here are free and provided by
+        <a href="https://www.pexels.com" class="w-[70px] ml-3">
+          <img id="pexels-logo" src="https://images.pexels.com/lib/api/pexels.png" />
+        </a>
+      </div>
+      <!-- Start Of Gallery -->
+      <div id="gallery" class="grid grid-cols-3 gap-4">
+
+	  </div>
+      <!-- End Of Gallery -->
+    </section>
+    <!-- End Of Image Section -->
+
+
+  </body>
+</html>
