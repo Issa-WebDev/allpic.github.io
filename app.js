@@ -7,21 +7,31 @@ themeToggler.addEventListener("click", () => {
   body.classList.toggle("dark");
 
   if (body.classList.contains("dark")) {
-    themeToggler.innerHTML = "Dark";
+    themeToggler.innerHTML = "🌙";
     pexelsLogo.src = "https://images.pexels.com/lib/api/pexels-white.png";
   } else {
-    themeToggler.innerHTML = "Light";
+    themeToggler.innerHTML = "🌞";
     pexelsLogo.src = "https://images.pexels.com/lib/api/pexels.png";
   }
 });
 
-
-// Fetch data
 const form = document.getElementById("form");
+const formBoxTop = document.querySelector(".form-boxTop");
 const input = document.getElementById("input");
-// const enterBtn = document.getElementById("enter-btn");
 const gallery = document.getElementById("gallery");
 
+// Dispaly search form
+// window.addEventListener("scroll", () => {
+//   if (window.scrollY > 100) {
+//     formBoxTop.classList.add("flex");
+//     formBoxTop.classList.remove("hidden");
+//   } else {
+//     formBoxTop.classList.remove("flex");
+//     formBoxTop.classList.add("hidden");
+//   }
+// });
+
+// Fetch data
 const APIkey = "QNhDLDuQYr7xGRR9Vc3olCY2OptlGdj02B8hb5MIw6E3jAFBtF6dR0KH";
 const API = "https://api.pexels.com/v1/search?";
 
@@ -51,13 +61,10 @@ function displayGallery(data) {
   data.forEach((data) => {
     const galleryItem = document.createElement("div");
 
-    // galleryItem.classList.add("cool");
+    galleryItem.classList.add("group");
 
     galleryItem.innerHTML = `
-		<img 
-			src="${data.src.large}" alt="${data.alt}"
-			class="w-full h-full object-cover"
-		 />
+      <img src="${data.src.large}" alt="${data.alt}" class="w-full" />
 	`;
 
     gallery.appendChild(galleryItem);
@@ -93,3 +100,28 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+// main of the website
+async function fecthHomeImages() {
+  const endpoint = `https://api.pexels.com/v1/curated?per_page=70&page=1`;
+
+  try {
+    const response = await fetch(endpoint, {
+      headers: {
+        Authorization: APIkey,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(
+        "Something went wrong, verify your network and try again"
+      );
+    }
+
+    const data = await response.json();
+    displayGallery(data.photos);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+fecthHomeImages();

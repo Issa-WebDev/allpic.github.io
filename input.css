@@ -10,3 +10,9 @@
     font-style: normal;
   }
 }
+
+@layer components {
+  .formTop {
+    @apply fixed top-0 z-20
+  }
+}
