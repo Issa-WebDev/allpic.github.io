@@ -2,7 +2,7 @@ const themeToggler = document.getElementById("theme-toggler");
 const pexelsLogo = document.getElementById("pexels-logo");
 const body = document.documentElement;
 
-// switch themes 👇🏻
+// ========================= Switch Themes👇🏻 =========================================
 themeToggler.addEventListener("click", () => {
   body.classList.toggle("dark");
 
@@ -20,18 +20,7 @@ const formBoxTop = document.querySelector(".form-boxTop");
 const input = document.getElementById("input");
 const gallery = document.getElementById("gallery");
 
-// Dispaly search form
-// window.addEventListener("scroll", () => {
-//   if (window.scrollY > 100) {
-//     formBoxTop.classList.add("flex");
-//     formBoxTop.classList.remove("hidden");
-//   } else {
-//     formBoxTop.classList.remove("flex");
-//     formBoxTop.classList.add("hidden");
-//   }
-// });
-
-// Fetch data
+// ========================= Fetch data👇🏻 =========================================
 const APIkey = "QNhDLDuQYr7xGRR9Vc3olCY2OptlGdj02B8hb5MIw6E3jAFBtF6dR0KH";
 const API = "https://api.pexels.com/v1/search?";
 
@@ -54,24 +43,23 @@ async function fetchImages(query) {
   return data;
 }
 
-// Display Gallery
+// ========================= Display Gallery👇🏻 =========================================
 function displayGallery(data) {
   gallery.innerHTML = "";
 
   data.forEach((data) => {
     const galleryItem = document.createElement("div");
 
-    galleryItem.classList.add("group");
+    // galleryItem.className = "relative";
 
     galleryItem.innerHTML = `
-      <img src="${data.src.large}" alt="${data.alt}" class="w-full" />
-	`;
+      <img src="${data.src.large}" alt="${data.alt}" class="w-full" />`;
 
     gallery.appendChild(galleryItem);
   });
 }
 
-// Submit Search key word
+// ========================= Submit Search KEYWORD (query)👇🏻 =========================================
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -100,7 +88,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// main of the website
+// ========================= Random Images👇🏻 =========================================
 async function fecthHomeImages() {
   const endpoint = `https://api.pexels.com/v1/curated?per_page=70&page=1`;
 
