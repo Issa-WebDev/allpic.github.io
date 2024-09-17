@@ -82,9 +82,9 @@ form.addEventListener("submit", async (e) => {
   } catch (error) {
     console.log(error);
     gallery.innerHTML = `
-	<em class="text-gray-500 dark:text-gray-200">
-		Something went wrong
-	</em>`;
+	  <em class="text-gray-500 dark:text-gray-200">
+		  Something went wrong
+	  </em>`;
   }
 });
 
